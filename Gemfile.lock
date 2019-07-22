@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    register_activity (0.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  register_activity!
+
+BUNDLED WITH
+   2.0.1
