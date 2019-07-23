@@ -8,7 +8,7 @@ module RegisterActivity
   extend ActiveSupport::Concern
   extend ActiveSupport::Autoload
 
-  autoload :Action, 'register_activity/action.rb'
+  autoload :Action, 'register_activity/models/action.rb'
   autoload :Tracked, 'register_activity/tracked.rb'
 
   require 'register_activity/config.rb'
