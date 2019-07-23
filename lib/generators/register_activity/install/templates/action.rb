@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class Action < ApplicationRecord
+class Action < RegisterActivity::Action
 end
