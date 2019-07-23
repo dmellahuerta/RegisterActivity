@@ -29,6 +29,6 @@ class CreateActions < ActiveRecord::Migration<%= migration_version %>
 
       t.datetime :created_at
     end
-    add_index :actions, %i(trackable_type trackable_id)
+    add_index :actions, %i(trackable_type trackable_id), name: 'track_type_track_id_index'
   end
 end
