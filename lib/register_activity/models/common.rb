@@ -70,7 +70,6 @@ module RegisterActivity
       end
 
       def create_action
-        byebug
         action = Action.new(action_params)
         action.save
       end
