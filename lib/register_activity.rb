@@ -2,16 +2,19 @@
 
 require 'active_support/concern'
 
-require 'register_activity/models/action.rb'
-
 module RegisterActivity
   extend ActiveSupport::Concern
   extend ActiveSupport::Autoload
 
   autoload :Action, 'register_activity/models/action.rb'
-  autoload :Tracked, 'register_activity/tracked.rb'
+  autoload :Common, 'register_activity/models/common.rb'
+  autoload :TrackedActiveRecord,
+           'register_activity/models/tracked_active_record.rb'
+  autoload :TrackedActiveResource,
+           'register_activity/models/tracked_active_resource.rb'
+
+  autoload :StoreDataController,
+           'register_activity/controllers/store_data_controller.rb'
 
   require 'register_activity/config.rb'
 end
-
-require 'register_activity/store_data_controller.rb'

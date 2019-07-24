@@ -2,14 +2,15 @@
 
 module RegisterActivity
   class Action < ActiveRecord::Base
+
     belongs_to :trackable, polymorphic: true
     belongs_to :owner, polymorphic: true
     belongs_to :recipient, polymorphic: true, optional: true
 
-    validates :trackable, presence: true
-    validates :owner, presence: true
-    validates :key, presence: true
-    validates :parameters, presence: true
+    validates :trackable,
+              :owner,
+              :key,
+              :parameters, presence: true
 
     def trackable
       find_relation(trackable_id, trackable_type)
@@ -32,6 +33,8 @@ module RegisterActivity
     end
 
     def recipient=(obj)
+      return if obj.blank?
+
       set_relation('recipient', obj)
     end
 
@@ -44,8 +47,8 @@ module RegisterActivity
     end
 
     def set_relation(belong, obj)
-      send(belong + '_id=', obj.id)
-      send(belong + '_type=', obj.class.name)
+      send("#{belong}_id=", obj.id)
+      send("#{belong}_type=", obj.class.name)
     end
   end
 end

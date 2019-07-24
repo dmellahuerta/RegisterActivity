@@ -19,6 +19,7 @@ module RegisterActivity
       @owner_method = 'current_user'
       @recipient_class = 'account'
       @recipient_id = 'account_id'
+      @table_name = 'action'
     end
   end
 end
