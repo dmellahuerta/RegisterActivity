@@ -40,7 +40,7 @@ module RegisterActivity
     end
 
     def store
-      RegisterActivity.owner = send(RegisterActivity.owner_method)
+      RegisterActivity.owner = send(RegisterActivity.configuration.owner_method)
       RegisterActivity.action_name = action_name
       RegisterActivity.controller_name = controller_name
       yield

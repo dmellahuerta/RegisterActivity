@@ -14,7 +14,7 @@ module RegisterActivity
     end
 
     def register_action
-      return if changes.blank?
+      return if previous_changes.blank?
 
       self.class.init_action(self)
     end
@@ -24,6 +24,7 @@ module RegisterActivity
         default_attributes
         self.register_activity_trackable = instance
         assign_attributes
+        return if self.register_activity_owner.blank?
         create_action
       end
 
@@ -40,7 +41,7 @@ module RegisterActivity
       end
 
       def assign_params
-        self.register_activity_params = register_activity_trackable.changes
+        self.register_activity_params = register_activity_trackable.previous_changes
       end
 
       def assign_owner
@@ -48,6 +49,7 @@ module RegisterActivity
       end
 
       def assign_recipient
+        byebug
         self.register_activity_recipient = nil
       end
 

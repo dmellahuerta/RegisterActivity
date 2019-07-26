@@ -18,7 +18,7 @@ module RegisterActivity
     def initialize
       @owner_method = 'current_user'
       @recipient_class = 'account'
-      @recipient_id = 'account_id'
+      @recipient_attr = 'account_id'
       @table_name = 'action'
     end
   end
