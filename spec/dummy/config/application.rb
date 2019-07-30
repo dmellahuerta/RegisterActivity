@@ -5,7 +5,6 @@ require_relative 'boot'
 require 'active_record/railtie'
 require 'action_controller/railtie'
 
-puts Bundler
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Dummy

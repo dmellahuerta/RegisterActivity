@@ -5,12 +5,12 @@ class CreateActions < ActiveRecord::Migration<%= migration_version %>
 
   def change
     create_table :actions<%= table_options %> do |t|
-      t.string :trackable_type, null: false
-      t.integer :trackable_id,  null: false, limit: 8
+      t.string :trackable_type
+      t.integer :trackable_id, limit: 8
       t.string :owner_type,     null: false
       t.bigint :owner_id,       null: false, limit: 8
-      t.string :key,            null: false
-      t.json :parameters        null: false
+      t.string :key
+      t.json :parameters
       t.string :recipient_type
       t.bigint :recipient_id
 

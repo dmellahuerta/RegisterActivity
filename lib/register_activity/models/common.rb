@@ -10,21 +10,25 @@ module RegisterActivity
                        :register_activity_owner,
                        :register_activity_recipient,
                        :register_activity_key,
-                       :register_activity_instance
+                       :register_activity_instance,
+                       :callback_type
     end
 
-    def register_action
+    def register_action(type = nil)
       return if previous_changes.blank?
 
-      self.class.init_action(self)
+      self.class.init_action(self, type)
     end
 
     class_methods do
-      def init_action(instance)
+      def init_action(instance, type)
         default_attributes
+        self.callback_type = type
         self.register_activity_trackable = instance
         assign_attributes
-        return if self.register_activity_owner.blank?
+
+        return if register_activity_owner.blank?
+
         create_action
       end
 
@@ -49,8 +53,13 @@ module RegisterActivity
       end
 
       def assign_recipient
-        byebug
-        self.register_activity_recipient = nil
+        recipient_attr = RegisterActivity.configuration.recipient_attr
+
+        if attr?(recipient_attr)
+          self.register_activity_recipient = RegisterActivity::configuration.recipient_class.find(register_activity_trackable.read_attribute(recipient_attr))
+        else
+          self.register_activity_recipient = nil
+        end
       end
 
       def default_attributes
@@ -59,6 +68,7 @@ module RegisterActivity
         self.register_activity_recipient = nil
         self.register_activity_key = ''
         self.register_activity_params = {}
+        self.callback_type = nil
       end
 
       def action_params
@@ -74,6 +84,12 @@ module RegisterActivity
       def create_action
         action = Action.new(action_params)
         action.save
+      end
+
+      private
+
+      def attr?(attribute)
+        register_activity_trackable.has_attribute?(attribute)
       end
     end
   end

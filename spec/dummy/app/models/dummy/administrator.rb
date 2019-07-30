@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Dummy
-  class Administrator < ApplicationRecord; end
+  class Administrator < ActiveRecord::Base; end
 end

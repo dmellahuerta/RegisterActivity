@@ -4,7 +4,7 @@ module RegisterActivity
       extend ActiveSupport::Concern
 
       def actions
-        Action.where(trackable_type: self.class, trackable_id: id)
+        Action.where(trackable_type: self.class.to_s, trackable_id: id)
       end
     end
   end

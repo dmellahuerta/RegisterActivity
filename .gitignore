@@ -1,7 +1,9 @@
 .DS_Store
 Gemfile.lock
+gemfiles/Gemfile-test.lock
 coverage
 *.swp
 .bundle/
 .byebug_history
 log/
+spec/dummy/db/test.sqlite3
