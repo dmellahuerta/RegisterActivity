@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
     'lib/register_activity.rb'
   ]
 
-  spec.add_development_dependency 'active_resource-dirty', '~> 1.0.3'
+  spec.add_development_dependency 'active_resource-dirty', '~> 1.0.4'
   spec.add_development_dependency 'activerecord', '~> 5.2.3'
   spec.add_development_dependency 'activeresource', '~> 5.1.0'
   spec.add_development_dependency 'rspec-rails', '~> 3.8'
