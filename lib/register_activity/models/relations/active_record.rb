@@ -4,7 +4,7 @@ module RegisterActivity
       extend ActiveSupport::Concern
 
       included do
-        has_many :actions, class_name: '::RegisterActivity::Action',
+        has_many :actions, class_name: '::RegisterActivity::RegisterAction',
                            as: :trackable
       end
     end

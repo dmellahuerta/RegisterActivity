@@ -7,7 +7,7 @@ module RegisterActivity
     end
 
     def save_register_activity
-      register_action(:save)
+      save_action(:save)
     end
   end
 end

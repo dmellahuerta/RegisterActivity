@@ -6,7 +6,7 @@ module RegisterActivity
   extend ActiveSupport::Concern
   extend ActiveSupport::Autoload
 
-  autoload :Action, 'register_activity/models/action.rb'
+  autoload :RegisterAction, 'register_activity/models/register_action.rb'
   autoload :Common, 'register_activity/models/common.rb'
   autoload :TrackedActiveRecord,
            'register_activity/models/tracked_active_record.rb'

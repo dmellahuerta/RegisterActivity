@@ -4,7 +4,7 @@ class CreateActions < ActiveRecord::Migration<%= migration_version %>
   # MySQL MySQL 5.7.8, MySQL supports a native JSON data type 5.7.8
 
   def change
-    create_table :actions<%= table_options %> do |t|
+    create_table :register_actions<%= table_options %> do |t|
       t.string :trackable_type
       t.integer :trackable_id, limit: 8
       t.string :owner_type,     null: false
@@ -29,6 +29,6 @@ class CreateActions < ActiveRecord::Migration<%= migration_version %>
 
       t.datetime :created_at
     end
-    add_index :actions, %i(trackable_type trackable_id), name: 'track_type_track_id_index'
+    add_index :register_actions, %i(trackable_type trackable_id), name: 'track_type_track_id_index'
   end
 end

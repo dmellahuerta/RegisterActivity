@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RegisterActivity
-  class Action < ActiveRecord::Base
+  class RegisterAction < ActiveRecord::Base
     belongs_to :trackable, polymorphic: true, optional: true
     belongs_to :owner, polymorphic: true
     belongs_to :recipient, polymorphic: true, optional: true

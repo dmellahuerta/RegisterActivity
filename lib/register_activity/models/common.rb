@@ -14,7 +14,7 @@ module RegisterActivity
                        :callback_type
     end
 
-    def register_action(type = nil)
+    def save_action(type = nil)
       return if previous_changes.blank?
 
       self.class.init_action(self, type)
@@ -82,7 +82,7 @@ module RegisterActivity
       end
 
       def create_action
-        action = Action.new(action_params)
+        action = RegisterAction.new(action_params)
         action.save
       end
 
