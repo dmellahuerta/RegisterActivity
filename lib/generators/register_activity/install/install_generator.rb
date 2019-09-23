@@ -16,7 +16,7 @@ module RegisterActivity
     end
 
     def create_model_file
-      copy_file('action.rb', 'app/models/action.rb')
+      copy_file('register_action.rb', 'app/models/register_action.rb')
     end
 
     private
